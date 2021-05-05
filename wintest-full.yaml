@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wintest-fullwin
+  name: wintest-fullwin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wintest-fullwin
+  template:
+    metadata:
+      labels:
+        app: wintest-fullwin
+      name: wintest-fullwin
+    spec:
+     containers:
+      - name: wintest-fullwin
+        image: mcr.microsoft.com/windows:10.0.17763.1879
+        command:
+        - powershell.exe
+        - -command
+        - "echo 'Testing...'; ping -t localhost"
+     nodeSelector:
+      kubernetes.io/os: windows
