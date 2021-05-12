@@ -18,6 +18,7 @@ spec:
      containers:
       - name: wintest-nano
         image: mcr.microsoft.com/dotnet/samples:aspnetapp-nanoserver-1809
+        imagePullPolicy: Always
         # command:
         # - "cmd /c ping -t localhost > NUL"
      nodeSelector:

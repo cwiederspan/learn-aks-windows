@@ -18,6 +18,7 @@ spec:
      containers:
       - name: wintest-fullwin
         image: mcr.microsoft.com/windows:10.0.17763.1879
+        imagePullPolicy: Always
         command:
         - powershell.exe
         - -command

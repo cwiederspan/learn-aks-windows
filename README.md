@@ -85,6 +85,13 @@ az aks nodepool show \
 --name win001 \
 --query nodeImageVersion
 
+az aks nodepool upgrade \
+--resource-group $NAME \
+--cluster-name $NAME \
+--name win001 \
+--query nodeImageVersion \
+--node-image-only
+
 # Get images sizes on Kubernetes
 kubectl get nodes -o json | jq '.items[].status.images[] | .names[1], .sizeBytes'
 
@@ -93,8 +100,15 @@ kubectl get nodes -o json | jq '.items[].status.images[] | .names[1], .sizeBytes
 ### Other Utilities from Within Container
 
 ```cmd
+kubectl exec -it tztest-8674886dff-vk2jc -- cmd
+
+# Get version info
 systeminfo
 
+# Check fonts
 reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts" /s
+
+# Change time zone
+tzutil /s "Mountain Standard Time"
 
 ```

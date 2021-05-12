@@ -2,24 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: wintest-core
-  name: wintest-core
+    app: tztest
+  name: tztest
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wintest-core
+      app: tztest
   template:
     metadata:
       labels:
-        app: wintest-core
-      name: wintest-core
+        app: tztest
+      name: tztest
     spec:
      containers:
-      - name: wintest-core
-        image: mcr.microsoft.com/windows/servercore:10.0.17763.1879
-        # image: mcr.microsoft.com/windows/servercore:10.0.18363.1556
-        # image: mcr.microsoft.com/windows/servercore:10.0.19042.985
+      - name: tztest
+        image: cdwms.azurecr.io/wintestcoretz:10.0.17763.1936
         imagePullPolicy: Always
         command:
         - powershell.exe

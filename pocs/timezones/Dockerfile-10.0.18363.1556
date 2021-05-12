@@ -1,0 +1,2 @@
+FROM mcr.microsoft.com/windows/servercore:10.0.18363.1556
+RUN tzutil /s "Mountain Standard Time"
