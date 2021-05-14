@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: tztestps
+  name: tztestps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tztestps
+  template:
+    metadata:
+      labels:
+        app: tztestps
+      name: tztestps
+    spec:
+     containers:
+      - name: tztestps
+        image: cdwms.azurecr.io/wintestcoretz:10.0.17763.1935.ps
+        imagePullPolicy: Always
+        command:
+        - powershell.exe
+        - -command
+        - "echo 'Testing...'; ping -t localhost"
+     nodeSelector:
+      kubernetes.io/os: windows
