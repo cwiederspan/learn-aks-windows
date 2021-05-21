@@ -100,7 +100,7 @@ kubectl get nodes -o json | jq '.items[].status.images[] | .names[1], .sizeBytes
 ### Other Utilities from Within Container
 
 ```cmd
-kubectl exec -it tztest-96f8fb696-ktbfk -- cmd
+kubectl exec -it tztestps-d69f5f6dd-gsjq4 -- cmd
 
 # Get version info
 systeminfo
